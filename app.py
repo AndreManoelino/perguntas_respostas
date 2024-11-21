@@ -47,7 +47,7 @@ def create_db():
 # Perguntas e respostas
 # Perguntas e respostas por idade
 PERGUNTAS = {
-    "6-8": {
+    "6-8": [
         {"pergunta": "Quantos lados tem um quadrado?", "opcoes": ["2", "3", "4", "5"], "correta": "4"},
         {"pergunta": "Complete corretamente a sequência A _ B _ C _ D ...", "opcoes": ["G", "K", "E", "Z"],
          "correta": "E"},
@@ -69,7 +69,7 @@ PERGUNTAS = {
         {"pergunta": "Quanto é 1 + 1?", "opcoes": ["3", "5", "8", "2"], "correta": "2"},
         {"pergunta": "Quantas sílabas tem a palavra DADO?", "opcoes": ["5", "8", "2", "15"], "correta": "2"},
 
-    },
+    ],
 
     "9-13": [
         {"pergunta": "Quantas pernas tem uma aranha?", "opcoes": ["4", "6", "8", "10"], "correta": "8"},
