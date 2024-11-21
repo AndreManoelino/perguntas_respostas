@@ -1,0 +1,207 @@
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/jogo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 80px; /* Adiciona espaço para o rodapé */
+}
+
+
+/* Estilo para a container do formulário */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Formulário de login */
+form {
+    background: rgba(0, 0, 0, 0.6); /* Fundo translúcido */
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para destacar */
+}
+
+/* Título do formulário */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Campos de entrada e botões */
+input[type="number"], button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilo para o botão */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Links */
+a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo responsivo para dispositivos pequenos */
+@media (max-width: 600px) {
+    body {
+        background-size: cover;
+        height: 100%;
+    }
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    form {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Estilos para a página de escolher idade */
+.jogo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* As perguntas ficam no topo */
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.pergunta {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.respostas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.resposta {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    width: 100%;
+    cursor: pointer;
+}
+
+.resposta:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para o rodapé */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    z-index: 10;
+    display: flex; /* Garante o alinhamento horizontal */
+    justify-content: space-between; /* Espaça os elementos */
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebra para telas menores */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; /* Permite que os elementos ocupem o espaço disponível */
+}
+
+
+.contato {
+    margin-bottom: 10px;
+}
+
+.contato ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contato li {
+    margin: 10px 0;
+}
+
+.contato a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.contato a:hover {
+    color: #1a73e8;
+}
+
+.contato img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.copyright {
+    font-size: 1em;
+    margin-top: 10px;
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Garante que ocupe toda a largura */
+}
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column; /* Empilha os itens no rodapé */
+        padding: 10px;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <img src="{{ url_for('static', filename='img/jogo.jpg') }}" alt="Jogo">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='img/jogo.jpg') }}');">
+    <div class="container">
+        <h1>Fim de Jogo!</h1>
+        <p>Você acertou {{ pontuacao }} perguntas!</p>
+        <p>Obrigado por jogar, {{ usuario }}!</p>
+        <a href="/logout">Sair</a>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="contato">
+                <p>Entre em contato:</p>
+                <ul>
+                    <li>
+                        <a href="https://github.com/AndreManoelino?tab=repositories" target="_blank">
+                            <img src="{{ url_for('static', filename='img/github.png') }}" alt="GitHub"> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/5531991070255" target="_blank">
+                            <img src="{{ url_for('static', filename='img/zap_icon.png') }}" alt="WhatsApp"> WhatsApp
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/Andre-Manoelino" target="_blank">
+                            <img src="{{ url_for('static', filename='img/linkedin_icon.png') }}" alt="Linkedin"> Linkedin
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:agmphandre@gmail.com" target="_blank">
+                            <img src="{{ url_for('static', filename='img/email_icon.png') }}" alt="E-mail"> E-mail
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p class="copyright">Direitos Autorais Reservados a André Manoelino</p>
+        </div>
+    </footer>
+</body>
+</html>
