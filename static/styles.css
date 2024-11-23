@@ -8,39 +8,61 @@
 /* Corpo da página */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('../img/jogo.jpg');
-    background-size: cover;
-    background-position: center;
+    background-image: url('../static/img/jogo.jpg'); /* Fundo com a imagem do jogo */
+    background-size: cover; /* A imagem cobre toda a tela */
+    background-position: center; /* A imagem se alinha ao centro */
+    background-attachment: fixed; /* A imagem não se move ao rolar a página */
     color: #fff;
-    height: 100vh;
-    display: flex;
+    height: 100vh; /* Garantir que a altura da tela seja 100% da viewport */
+    margin: 0; /* Remover margens extras do body */
+    padding: 0; /* Remover padding */
+    display: flex; /* Usando Flexbox para centralizar o conteúdo */
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding-bottom: 80px; /* Adiciona espaço para o rodapé */
+    position: relative;
+    flex-direction: column; /* Adicionar isso para empilhar os elementos (formulário e ranking) */
 }
 
-
-/* Estilo para a container do formulário */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+/* Estilo para o ranking no canto superior esquerdo */
+.ranking-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo translúcido */
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 5; /* Garantir que o ranking fique acima de outros elementos */
 }
 
-/* Formulário de login */
+.ranking-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ranking-container li {
+    font-size: 16px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.ranking-container img {
+    margin-right: 10px;
+    width: 30px; /* Dimensão do troféu */
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Formulário de login centralizado */
 form {
     background: rgba(0, 0, 0, 0.6); /* Fundo translúcido */
     padding: 30px;
     border-radius: 10px;
     width: 300px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para destacar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Destaque do formulário */
 }
 
 /* Título do formulário */
@@ -87,68 +109,39 @@ a:hover {
 /* Estilo responsivo para dispositivos pequenos */
 @media (max-width: 600px) {
     body {
-        background-size: cover;
-        height: 100%;
-    }
-    .container {
-        flex-direction: column;
-        justify-content: center;
+        height: auto; /* Ajustar a altura para telas pequenas */
+        justify-content: flex-start; /* Alinhar o conteúdo no topo */
         align-items: center;
     }
+
     form {
         width: 80%;
         margin: 0 auto;
     }
-}
 
-/* Estilos para a página de escolher idade */
-.jogo-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* As perguntas ficam no topo */
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-}
+    /* Ajustar a posição do ranking no celular */
+    .ranking-container {
+        position: static; /* Remover a posição absoluta */
+        margin-bottom: 20px; /* Dar espaço entre o ranking e o formulário */
+        width: 100%;
+        box-shadow: none; /* Remover sombra */
+    }
 
-.pergunta {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.respostas {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.resposta {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    width: 100%;
-    cursor: pointer;
-}
-
-.resposta:hover {
-    background-color: #45a049;
+    footer {
+        flex-direction: column; /* Empilhar os itens no rodapé */
+        padding: 10px;
+    }
 }
 
 /* Estilos para o rodapé */
 footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 75%;
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 1px;
     z-index: 10;
     display: flex; /* Garante o alinhamento horizontal */
     justify-content: space-between; /* Espaça os elementos */
@@ -162,7 +155,6 @@ footer {
     align-items: center;
     flex-grow: 1; /* Permite que os elementos ocupem o espaço disponível */
 }
-
 
 .contato {
     margin-bottom: 10px;
@@ -198,10 +190,4 @@ footer {
     margin-top: 10px;
     text-align: center; /* Centraliza o texto */
     width: 100%; /* Garante que ocupe toda a largura */
-}
-@media (max-width: 600px) {
-    footer {
-        flex-direction: column; /* Empilha os itens no rodapé */
-        padding: 10px;
-    }
 }

@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- teste -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Jogo de Perguntas</title>
+    <title>Jogo de Perguntas</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-    <img src="{{ url_for('static', filename='img/jogo.jpg') }}" alt="Jogo">
 </head>
 <body>
+    <!-- Exibição do ranking -->
+    <div class="ranking-container">
+        <h2>Melhores Jogadores</h2>
+        <ul>
+            {% for player in top_players %}
+                <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <img src="{{ url_for('static', filename='img/trofeu.png') }}" alt="Troféu" style="width: 30px; height: 30px; margin-right: 10px;">
+                    <span><strong>{{ player['username'] }}</strong> - Pontuação: {{ player['pontuacao'] }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Login Formulário -->
     <div class="container">
         <form method="POST" action="/login">
             <h1>Login</h1>
@@ -31,22 +43,22 @@
                 <ul>
                     <li>
                         <a href="https://github.com/AndreManoelino?tab=repositories" target="_blank">
-                            <img src="{{ url_for('static', filename='img/github.png') }}" alt="GitHub"> GitHub
+                            <img src="{{ url_for('static', filename='img/github.png') }}" alt="GitHub" style="width: 20px; height: 20px; margin-right: 5px;"> GitHub
                         </a>
                     </li>
                     <li>
                         <a href="https://wa.me/5531991070255" target="_blank">
-                            <img src="{{ url_for('static', filename='img/zap_icon.png') }}" alt="WhatsApp"> WhatsApp
+                            <img src="{{ url_for('static', filename='img/zap_icon.png') }}" alt="WhatsApp" style="width: 20px; height: 20px; margin-right: 5px;"> WhatsApp
                         </a>
                     </li>
                     <li>
                         <a href="https://linkedin.com/Andre-Manoelino" target="_blank">
-                            <img src="{{ url_for('static', filename='img/linkedin_icon.png') }}" alt="Linkedin"> Linkedin
+                            <img src="{{ url_for('static', filename='img/linkedin_icon.png') }}" alt="Linkedin" style="width: 20px; height: 20px; margin-right: 5px;"> Linkedin
                         </a>
                     </li>
                     <li>
                         <a href="mailto:agmphandre@gmail.com" target="_blank">
-                            <img src="{{ url_for('static', filename='img/email_icon.png') }}" alt="E-mail"> E-mail
+                            <img src="{{ url_for('static', filename='img/email_icon.png') }}" alt="E-mail" style="width: 20px; height: 20px; margin-right: 5px;"> E-mail
                         </a>
                     </li>
                 </ul>
