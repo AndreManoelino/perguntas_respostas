@@ -14,7 +14,7 @@
         <ul>
             {% for player in top_players %}
                 <li style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <img src="{{ url_for('static', filename='img/trofeu.png') }}" alt="Troféu" style="width: 30px; height: 30px; margin-right: 10px;">
+                    <img src="static/trofeu.jpg" alt="Troféu" style="width: 30px; height: 30px; margin-right: 10px;">
                     <span><strong>{{ player['username'] }}</strong> - Pontuação: {{ player['pontuacao'] }}</span>
                 </li>
             {% endfor %}
