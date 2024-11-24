@@ -132,7 +132,7 @@ def login():
             conn.close()
             return redirect('/jogo')
         else:
-            return ('index.html', error="Usuário ou senha inválidos!")
+            return render_template('index.html', error="Usuário ou senha inválidos!")
     except Exception as e:
         return f"Erro ao autenticar: {str(e)}"
 
@@ -162,7 +162,7 @@ def cadastro():
             return redirect('/ranking')  # Redireciona para a página de ranking
         except Exception as e:
             return f"Erro ao cadastrar: {str(e)}"
-    return ('cadastro.html')
+    return render_template('cadastro.html')
 
 
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -188,16 +188,16 @@ def perfil():
 
             if not registro or not check_password_hash(registro[0], senha_atual):
                 flash("Senha atual incorreta.", "danger")
-                return ('perfil.html', usuario=session['user'])
+                return render_template('perfil.html', usuario=session['user'])
 
             # Valida a nova senha
             if nova_senha != confirmacao:
                 flash("As novas senhas não coincidem.", "danger")
-                return ('perfil.html', usuario=session['user'])
+                return render_template('perfil.html', usuario=session['user'])
 
             if len(nova_senha) < 8 or not any(char.isdigit() for char in nova_senha) or not any(char.isupper() for char in nova_senha):
                 flash("A nova senha deve ter pelo menos 8 caracteres, incluir números e letras maiúsculas.", "danger")
-                return ('perfil.html', usuario=session['user'])
+                return render_template('perfil.html', usuario=session['user'])
 
             # Atualiza a senha no banco de dados
             nova_senha_hash = generate_password_hash(nova_senha)
@@ -210,7 +210,7 @@ def perfil():
         finally:
             conn.close()
 
-    return ('perfil.html', usuario=session['user'])
+    return render_template('perfil.html', usuario=session['user'])
 
 
 
@@ -260,7 +260,7 @@ def pergunta():
 
     if session['pergunta_atual'] < len(perguntas):
         pergunta = perguntas[session['pergunta_atual']]
-        return ('jogo.html', pergunta=pergunta, index=session['pergunta_atual'] + 1,
+        return render_template('jogo.html', pergunta=pergunta, index=session['pergunta_atual'] + 1,
                                total=len(perguntas))
     else:
         return redirect('/gameover')
@@ -289,7 +289,7 @@ def gameover():
     except Exception as e:
         return f"Erro ao atualizar ranking: {str(e)}"
 
-    return ('gameover.html', pontuacao=pontuacao, usuario=username, ranking=ranking)
+    return render_template('gameover.html', pontuacao=pontuacao, usuario=username, ranking=ranking)
 
 @app.route('/logout')
 def logout():
@@ -308,7 +308,7 @@ def escolher_idade():
         session['faixa_etaria'] = idade
         return redirect('/jogo')
 
-    return ('escolher_idade.html')
+    return render_template('escolher_idade.html')
 
 @app.route('/ranking')
 def ranking():
@@ -334,7 +334,7 @@ def ranking():
             top_players_with_images.append(player_data)
 
         # Passando os dados dos melhores jogadores para o template
-        return ('index.html', top_players=top_players_with_images)
+        return render_template('index.html', top_players=top_players_with_images)
     except Exception as e:
         return f"Erro ao buscar ranking: {str(e)}"
 
